@@ -27,6 +27,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  shared_preferences: ^2.0.13
+  intl: ^0.17.0
+  rxdart: ^0.27.3
+  android_alarm_manager_plus: ^2.0.5
+  flutter_local_notifications: ^9.4.0
+  convex_bottom_bar: 3.0.0
+  sqflite: ^2.0.2
   http: ^0.13.4
   provider: ^6.0.2
   google_fonts: 2.3.1

@@ -12,7 +12,7 @@ class CardList extends StatelessWidget {
     return Material(
       color: Colors.white,
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        contentPadding: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
         leading: Image.network(
           'https://restaurant-api.dicoding.dev/images/small/${restaurant.pictureId}',
           width: 100,
@@ -32,12 +32,13 @@ class CardList extends StatelessWidget {
             ),
             Row(
               children: [
-                Text(restaurant.rating.toString(),style:  Theme.of(context).textTheme.subtitle2,),
                 const Icon(
                   Icons.star,
                   color: Colors.amber,
                   size: 16,
-                )
+                ),
+                Text(restaurant.rating.toString(),style:  Theme.of(context).textTheme.subtitle2,),
+
               ],
             )
           ],

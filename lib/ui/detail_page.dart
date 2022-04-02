@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:restaurant_api_app/common/style/style.dart';
 import 'package:restaurant_api_app/data/api/api_service.dart';
+import 'package:restaurant_api_app/data/model/restaurant.dart';
+import 'package:restaurant_api_app/provider/database_provider.dart';
 import 'package:restaurant_api_app/provider/detail_provider.dart';
-import 'package:restaurant_api_app/style/style.dart';
+import 'package:restaurant_api_app/util/result_state.dart';
 import 'package:restaurant_api_app/widget/costume_scaffold.dart';
 import 'package:restaurant_api_app/widget/drinkcard.dart';
 import 'package:restaurant_api_app/widget/foodcard.dart';
@@ -90,6 +93,38 @@ class Content extends StatelessWidget {
                         const Icon(
                           Icons.star,
                           color: Colors.amberAccent,
+                        ),
+                        Consumer<DatabaseFavoriteProvider>(
+                         builder: (context, result, child){
+                           return FutureBuilder<bool>(
+                             future: result.isFavorite(state.result.restaurant.id),
+                             builder: (context,snapshot){
+                               var isFavorite = snapshot.data ??false;
+                               var data = Restaurant(id: state.result.restaurant.id,
+                                   name: state.result.restaurant.name,
+                                   description: state.result.restaurant.description,
+                                   pictureId: state.result.restaurant.pictureId,
+                                   city: state.result.restaurant.city,
+                                   rating: state.result.restaurant.rating);
+                               return isFavorite
+                                   ? InkWell(
+                                 onTap: () => result.deleteFavorite(
+                                     state.result.restaurant.id),
+                                 child: Icon(
+                                   Icons.favorite,
+                                   color: Colors.redAccent,
+                                 ),
+                               )
+                                   : InkWell(
+                                 onTap: () => result.addFavorite(data),
+                                 child: Icon(
+                                   Icons.favorite_border,
+                                   color: Colors.grey,
+                                 ),
+                               );
+                             },
+                           );
+                         },
                         )
                       ],
                     ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:restaurant_api_app/common/style/style.dart';
 import 'package:restaurant_api_app/data/api/api_service.dart';
 import 'package:restaurant_api_app/provider/search_provider.dart';
-import 'package:restaurant_api_app/style/style.dart';
 import 'package:restaurant_api_app/widget/card_list.dart';
 
 class SearchPage extends StatelessWidget {
@@ -15,6 +15,7 @@ class SearchPage extends StatelessWidget {
       create: (_) => SearchProvider(apiService: ApiService()),
       child: Scaffold(
         appBar: AppBar(
+          title: Text('Search',style: Theme.of(context).textTheme.headline5,),
           backgroundColor: secondaryColor,
         ),
         body: MainSearch(),

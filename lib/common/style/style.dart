@@ -11,8 +11,8 @@ final TextTheme myTextTheme = TextTheme(
   headline1: GoogleFonts.montserrat(
       fontSize: 96, fontWeight: FontWeight.w300, letterSpacing: -1.5),
 
-  headline2: GoogleFonts.merriweather(
-      fontSize: 60, fontWeight: FontWeight.w300, letterSpacing: -0.5),
+  headline2: GoogleFonts.poppins(
+      fontSize: 20, fontWeight: FontWeight.w300, letterSpacing: -0.5,color: Colors.deepOrange),
 
   headline3:
   GoogleFonts.merriweather(fontSize: 48, fontWeight: FontWeight.w400),

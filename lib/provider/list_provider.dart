@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_api_app/data/api/api_service.dart';
 import 'package:restaurant_api_app/data/model/restaurant_list.dart';
+import 'package:restaurant_api_app/util/result_state.dart';
 
-enum ResultState {loading, noData, hasData, error}
 
 
 class ListProvider extends ChangeNotifier{
