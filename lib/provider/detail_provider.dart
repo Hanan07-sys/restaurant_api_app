@@ -3,7 +3,6 @@ import 'package:restaurant_api_app/data/api/api_service.dart';
 import 'package:restaurant_api_app/data/model/restaurant_detail.dart';
 import 'package:restaurant_api_app/util/result_state.dart';
 
-
 class DetailProvider extends ChangeNotifier {
   late final ApiService apiService;
   String id;
@@ -25,7 +24,7 @@ class DetailProvider extends ChangeNotifier {
       _state = ResultState.loading;
       notifyListeners();
       final restaurant = await apiService.detailRestaurant(id);
-      if (restaurant.restaurant.id == null) {
+      if (restaurant.restaurant.name == null) {
         _state = ResultState.noData;
         notifyListeners();
         return _message = 'Empty Data';

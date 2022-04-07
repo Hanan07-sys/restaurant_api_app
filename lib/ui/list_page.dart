@@ -1,5 +1,4 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurant_api_app/common/style/style.dart';
@@ -20,7 +19,7 @@ class ListRestaurant extends StatefulWidget {
 }
 
 class _ListRestaurantState extends State<ListRestaurant> {
-  int currentIndex =0;
+  int currentIndex = 0;
   Future<RestaurantList>? _restaurant;
 
   @override
@@ -31,12 +30,10 @@ class _ListRestaurantState extends State<ListRestaurant> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> widgets=[
+    List<Widget> widgets = [
       _buildList(context),
       FavoritePage(),
       SettingPage(),
-
-
     ];
     return ChangeNotifierProvider(
       create: (context) => ListProvider(apiService: ApiService()),
@@ -45,7 +42,7 @@ class _ListRestaurantState extends State<ListRestaurant> {
           headerSliverBuilder: (context, isScrolled) {
             return [
               SliverAppBar(
-                expandedHeight: 310,
+                expandedHeight: 240,
                 pinned: true,
                 backgroundColor: secondaryColor,
                 title: Row(
@@ -68,7 +65,6 @@ class _ListRestaurantState extends State<ListRestaurant> {
                         size: 28,
                       ),
                     ),
-
                   ],
                 ),
                 flexibleSpace: FlexibleSpaceBar(
@@ -83,20 +79,19 @@ class _ListRestaurantState extends State<ListRestaurant> {
           body: widgets[currentIndex],
         ),
         bottomNavigationBar: ConvexAppBar(
-          backgroundColor: Colors.black54,
-          color: primaryColor,
-          items: [
-            TabItem(icon:Icon(Icons.home), title: 'Home'),
-            TabItem(icon:Icon(Icons.favorite_outlined), title: 'Favorite'),
-            TabItem(icon:Icon(Icons.settings), title: 'Settings'),
-          ],
-          initialActiveIndex: 0,
-          onTap: (int i ){
-            setState(() {
-              currentIndex=i;
-            });
-          }
-        ),
+            backgroundColor: Colors.black54,
+            color: primaryColor,
+            items: [
+              TabItem(icon: Icon(Icons.home), title: 'Home'),
+              TabItem(icon: Icon(Icons.favorite_outlined), title: 'Favorite'),
+              TabItem(icon: Icon(Icons.settings), title: 'Settings'),
+            ],
+            initialActiveIndex: 0,
+            onTap: (int i) {
+              setState(() {
+                currentIndex = i;
+              });
+            }),
       ),
     );
   }

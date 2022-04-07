@@ -6,15 +6,15 @@ class PreferencesHelper{
 
   PreferencesHelper({required this.sharedPreferences});
 
-  static const RESTAURANT_DAILY = 'RESTAURANT_DAILY';
+  static const restaurantDaily = 'RESTAURANT_DAILY';
 
   Future<bool> get isDailyNotificationActive async{
     final prefs = await sharedPreferences;
-    return prefs.getBool(RESTAURANT_DAILY) ?? false;
+    return prefs.getBool(restaurantDaily) ?? false;
   }
 
   void setDailyNotification(bool value) async{
     final prefs = await sharedPreferences;
-    prefs.setBool(RESTAURANT_DAILY, value);
+    prefs.setBool(restaurantDaily, value);
   }
 }

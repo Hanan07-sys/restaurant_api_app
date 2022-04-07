@@ -34,6 +34,7 @@ class DatabaseFavoriteProvider extends ChangeNotifier{
   void addFavorite(Restaurant restaurant) async{
     try{
       await databaseHelper.insertFavorite(restaurant);
+      _getFavorite();
     }catch (e){
       _state = ResultState.error;
       _message = 'Error ->$e';

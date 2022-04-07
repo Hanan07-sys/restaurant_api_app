@@ -24,8 +24,8 @@ class MainSetting extends StatelessWidget {
     return SafeArea(
       child: Consumer<PreferencesProvider>(builder: (context, provider, child) {
         return ListTile(
-            title: Text('Daily Restaurant',style: Theme.of(context).textTheme.headline6),
-            subtitle: Text('Notification',style: Theme.of(context).textTheme.subtitle1),
+            title: Text('Notification',style: Theme.of(context).textTheme.headline6),
+            subtitle: Text('Daily Restaurant',style: Theme.of(context).textTheme.subtitle1),
             trailing: Consumer<SchedulingProvider>(
                 builder: (context, scheduled, _) {
               return Switch.adaptive(

@@ -2,6 +2,7 @@
 import 'dart:isolate';
 import 'dart:math';
 import 'dart:ui';
+
 import 'package:restaurant_api_app/data/api/api_service.dart';
 import 'package:restaurant_api_app/main.dart';
 import 'package:restaurant_api_app/util/notification_helper.dart';

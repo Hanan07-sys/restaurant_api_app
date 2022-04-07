@@ -21,15 +21,30 @@ class MainFavorite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: Column(
         children: [
-          Expanded(
-            child: Consumer<DatabaseFavoriteProvider>(builder: (context, result, child) {
-              if (result.state == ResultState.loading) {
-                return const Center(child: CircularProgressIndicator());
-              } else if (result.state == ResultState.hasData) {
-                return ListView.separated(
+          Card(
+            color: Colors.deepOrangeAccent,
+            child: Padding(
+              padding: const EdgeInsets.all(6.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Favorite Restaurant',
+                    style: Theme.of(context).textTheme.caption,
+                  )
+                ],
+              ),
+            ),
+          ),
+          Consumer<DatabaseFavoriteProvider>(builder: (context, result, child) {
+            if (result.state == ResultState.loading) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (result.state == ResultState.hasData) {
+              return Expanded(
+                child: ListView.separated(
                   shrinkWrap: true,
                   itemCount: result.favorite.length,
                   itemBuilder: (context, index) {
@@ -39,16 +54,16 @@ class MainFavorite extends StatelessWidget {
                   separatorBuilder: (context, index) => const Divider(
                     color: Colors.blue,
                   ),
-                );
-              } else if (result.state == ResultState.noData) {
-                return Center(child: Text(result.message));
-              } else if (result.state == ResultState.error) {
-                return Center(child: Text(result.message));
-              } else {
-                return const Center(child: Text('NULL'));
-              }
-            }),
-          ),
+                ),
+              );
+            } else if (result.state == ResultState.noData) {
+              return Center(child: Text(result.message));
+            } else if (result.state == ResultState.error) {
+              return Center(child: Text(result.message));
+            } else {
+              return const Center(child: Text('NULL'));
+            }
+          }),
         ],
       ),
     );

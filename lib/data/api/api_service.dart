@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:restaurant_api_app/data/model/restaurant_detail.dart';
 import 'package:restaurant_api_app/data/model/restaurant_list.dart';
