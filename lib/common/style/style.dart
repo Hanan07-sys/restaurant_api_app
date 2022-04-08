@@ -6,6 +6,9 @@ const Color secondaryColor = Color(0xFF141B21);
 const Color listColor = Color(0xFFE3CAA5);
 const Color foodColor = Colors.deepOrange;
 const Color drinkColor = Colors.lightBlue;
+const Color kRichBlack = Color(0xFF000814);
+const Color kDavysGrey = Color(0xFF4B5358);
+
 
 final TextTheme myTextTheme = TextTheme(
   headline1: GoogleFonts.montserrat(
